@@ -59,7 +59,7 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
-          <li class="dropdown messages-menu">
+          {{-- <li class="dropdown messages-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-envelope-o"></i>
               <span class="label label-success">4</span>
@@ -72,7 +72,7 @@
                   <li><!-- start message -->
                     <a href="#">
                       <div class="pull-left">
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="{{asset('assets/admin/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Support Team
@@ -254,7 +254,7 @@
                 <a href="#">View all tasks</a>
               </li>
             </ul>
-          </li>
+          </li> --}}
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -331,10 +331,10 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="active treeview">
            <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Profil</span>
-            <span class="pull-right-container">
+            <i class="fa fa-shield"></i><span>Profil</span>
+            {{-- <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
-            </span>
+            </span> --}}
           </a>
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Perkuliahan</span>
@@ -348,15 +348,15 @@
           </ul>
            <a href="#">
             <i class="fa fa-dashboard"></i> <span>Pembayaran</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
+            {{-- <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i> --}}
             </span>
           </a>
            <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Sidang</span>
-            <span class="pull-right-container">
+           <i class="fa fa-shield"></i><span>Sidang</span>
+            {{-- <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
-            </span>
+            </span> --}}
           </a>
         </li>
     </section>
@@ -372,7 +372,7 @@
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="/ "><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Dashboard</li>
       </ol>
     </section>
@@ -481,7 +481,7 @@
             <div class="box-body chat" id="chat-box">
               <!-- chat item -->
               <div class="item">
-                <img src="dist/img/user4-128x128.jpg" alt="user image" class="online">
+                <img src="{{asset('assets/admin/dist/img/user4-128x128.jpg')}}" alt="user image" class="online">
 
                 <p class="message">
                   <a href="#" class="name">
@@ -508,7 +508,7 @@
               <!-- /.item -->
               <!-- chat item -->
               <div class="item">
-                <img src="dist/img/user3-128x128.jpg" alt="user image" class="offline">
+                <img src="{{asset('assets/admin/dist/img/user3-128x128.jpg')}}" alt="user image" class="offline">
 
                 <p class="message">
                   <a href="#" class="name">
@@ -523,7 +523,7 @@
               <!-- /.item -->
               <!-- chat item -->
               <div class="item">
-                <img src="dist/img/user2-160x160.jpg" alt="user image" class="offline">
+                <img src="{{asset('assets/admin/dist/img/user2-160x160.jpg')}}" alt="user image" class="offline">
 
                 <p class="message">
                   <a href="#" class="name">

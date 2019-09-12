@@ -12,8 +12,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                background:url('/img/sementara.png');
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
@@ -89,7 +88,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    PORTAL MAHASISWA
+                    <p>PORTAL MAHASISWA</p>
                     {{-- <div>Welcome {{Auth::user()->name }}</div> --}}
                 </div>
             </div>
