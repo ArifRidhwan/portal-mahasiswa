@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mahasiswa extends Model
 {
-  #Tentukan nama table terkait
+    #Tentukan nama table terkait
     protected $table = 'mahasiswas';
     #MASS ASSIGMENT
     #Untuk membatasi attribute(field) yang boleh diisi
-    protected $fillable = ['nama','npm','alamat'];
+    protected $fillable = ['nama', 'npm', 'alamat', 'tgl_lahir'];
     // Relasi One-to-Many
     // ==================
     // Buat function bernama dosen(), dimana model
@@ -22,7 +22,7 @@ class Mahasiswa extends Model
     // public function wali(){
     //     return $this->hasOne('App\Wali','id_mahasiswa');
     // }
-     // Relasi Many-to-Many
+    // Relasi Many-to-Many
     // ===================
     // Buat function bernama hobi(), dimana model 'Mahasiswa'
     // memiliki relasi Many-to-Many (belongsToMany) terhadap model
@@ -30,5 +30,4 @@ class Mahasiswa extends Model
     // masing-masing sebagai 'id_hobi' dan 'id_mahasiswa'
     // public function hobi(){
     //     return $this->belongsToMany('App\Hobi', 'mhs_hobis', 'id_mahasiswa', 'id_hobi');
-    }
-
+}

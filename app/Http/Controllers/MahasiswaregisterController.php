@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Mahasiswa;
-use Session;
 use Illuminate\Http\Request;
+use App\Mahasiswaregister;
+use Session;
 
-class MahasiswaController extends Controller
+
+class MahasiswaregisterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-         $mhs = Mahasiswa::with('nama ','npm','alamat');
-                return view('mahasiswa.index', compact('mhs'));
+        $mhs = Mahasiswaregister::all();
+        return view('register.register');
     }
 
     /**
@@ -26,7 +27,7 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-                return view('mahasiswa.create');
+        return view('register.register');
     }
 
     /**
@@ -37,28 +38,32 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        $mhs = new Mahasiswa();
+        $mhs = new Mahasiswaregister();
         $mhs->nama = $request->nama;
         $mhs->npm =  $request->npm;
         // $mhs->id_dosen = $request->id_dosen;
         $mhs->alamat = $request->alamat;
+        $mhs->tgl_lahir = $request->tgl_lahir;
+        $mhs->email = $request->email;
         $mhs->save();
         // $mhs->hobi()->attach($request->hobi);//
-        Session::flash("flash_notification", 
-        [
-            "level" => "success",
-            "message" => "Berhasil menyimpan <b>$mhs->nama</b>"
-        ]);
+        Session::flash(
+            "flash_notification",
+            [
+                "level" => "success",
+                "message" => "Berhasil menyimpan <b>$mhs->nama</b>"
+            ]
+        );
         return redirect()->route('mahasiswa.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Mahasiswa  $mahasiswa
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Mahasiswa $mahasiswa)
+    public function show($id)
     {
         //
     }
@@ -66,10 +71,10 @@ class MahasiswaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Mahasiswa  $mahasiswa
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Mahasiswa $mahasiswa)
+    public function edit($id)
     {
         //
     }
@@ -78,10 +83,10 @@ class MahasiswaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Mahasiswa  $mahasiswa
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Mahasiswa $mahasiswa)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -89,10 +94,10 @@ class MahasiswaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Mahasiswa  $mahasiswa
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Mahasiswa $mahasiswa)
+    public function destroy($id)
     {
         //
     }
