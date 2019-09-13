@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Mahasiswaregister;
 use Session;
+use Illuminate\Http\Request;
 
 
 class MahasiswaregisterController extends Controller

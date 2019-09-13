@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>RegistrationForm_v1 by Colorlib</title>
+		<title>Forum Registration Portal Mahasiswa</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- MATERIAL DESIGN ICONIC FONT -->
@@ -13,18 +13,18 @@
 	</head>
 
 	<body>
-		<div class="wrapper" style="background-image:{{ asset('assets/register/images/bg-registration-form-1.jpg')}}">
+		<div class="wrapper" style="background-image:url('/img/pas.jpg')">
 			<div class="inner">
 				<div class="image-holder">
 					<img src="{{asset('assets/register/images/piksi.png')}}" alt="">
 				</div>
 				<form action="">
-					<h3>Registration Form</h3>
+					<h3>Portal Mahasiswa</h3>
 					<div class="form-group">
-						<input type="text" name="nama" placeholder=" Name" class="form-control">
+						<input type="text" name="npm" placeholder=" NPM" class="form-control">
 					</div>
 					<div class="form-wrapper">
-						<input type="text" name="npm" placeholder="Nomor Pokok Mahasiswa" class="form-control">
+						<input type="text" name="nama" placeholder="Nama" class="form-control">
 						<i class="zmdi zmdi-account"></i>
 					</div>
 					<div class="form-wrapper">
