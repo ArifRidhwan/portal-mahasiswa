@@ -10,7 +10,7 @@ class Mahasiswa extends Model
     protected $table = 'mahasiswas';
     #MASS ASSIGMENT
     #Untuk membatasi attribute(field) yang boleh diisi
-    protected $fillable = ['nama', 'npm', 'alamat', 'tgl_lahir'];
+    protected $fillable = ['nama', 'npm', 'alamat', 'jenis_kelamin'];
     // Relasi One-to-Many
     // ==================
     // Buat function bernama dosen(), dimana model

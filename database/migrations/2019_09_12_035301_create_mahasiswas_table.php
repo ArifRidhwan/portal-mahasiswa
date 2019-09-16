@@ -18,6 +18,7 @@ class CreateMahasiswasTable extends Migration
             $table->string('nama');
             $table->string('npm');
             $table->string('alamat');
+            $table->string('jenis_kelamin', 1);
             // $table->unsignedInteger('id_dosen');
             // $table->foreign('id_dosen')->references('id')->on('dosens')->onDelete('cascade');
             $table->timestamps();

@@ -15,17 +15,11 @@ class Mahasiswaregister extends Migration
     {
         Schema::create('mahasiswa_registers', function (Blueprint $table) {
             $table->increments('id');
-<<<<<<< HEAD
             $table->string('npm');
             $table->string('nama');    
             $table->string('alamat');
+            $table->string('jenis_kelamin', 1);
             // $table->date('tgl_lahir');
-=======
-            $table->string('nama');
-            $table->string('npm');
-            $table->string('alamat');
-            $table->date('tgl_lahir');
->>>>>>> 1888499140fe53cc386ebd175c836e8851f660d2
             $table->string('email')->unique();
             $table->string('password');
             $table->timestamp('konfirm_pass');

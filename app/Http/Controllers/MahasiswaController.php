@@ -15,11 +15,7 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
          $mhs = Mahasiswa::all();
-=======
-         $mhs = Mahasiswa::with('nama ','npm','alamat');
->>>>>>> 1888499140fe53cc386ebd175c836e8851f660d2
                 return view('mahasiswa.index', compact('mhs'));
     }
 
@@ -44,6 +40,7 @@ class MahasiswaController extends Controller
         $mhs = new Mahasiswa();
         $mhs->nama = $request->nama;
         $mhs->npm =  $request->npm;
+        $mhs->jenis_kelamin = $request->jenis_kelamin;
         // $mhs->id_dosen = $request->id_dosen;
         $mhs->alamat = $request->alamat;
         $mhs->save();
@@ -73,9 +70,10 @@ class MahasiswaController extends Controller
      * @param  \App\Mahasiswa  $mahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function edit(Mahasiswa $mahasiswa)
+    public function edit($id)
     {
-        //
+    $mhs = Mahasiswa::findOrFail($id);
+    return view('mahasiswa.edit', compact('mhs','selected'));    
     }
 
     /**
@@ -85,9 +83,20 @@ class MahasiswaController extends Controller
      * @param  \App\Mahasiswa  $mahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Mahasiswa $mahasiswa)
+    public function update(Request $request,$id)
     {
-        //
+        $mhs = Mahasiswa::findOrFail($id);
+        $mhs->nama = $request->nama;
+        $mhs->npm = $request->npm;
+        $mhs->jenis_kelamin = $request->jenis_kelamin;
+        $mhs->alamat = $request->alamat;
+        $mhs->save();
+        Session::flash("flash_notification", 
+        [
+            "level" => "success",
+            "message" => "Berhasil mengedit <b>$mhs->nama</b>"
+        ]);
+        return redirect()->route('mahasiswa.index');
     }
 
     /**
@@ -96,8 +105,16 @@ class MahasiswaController extends Controller
      * @param  \App\Mahasiswa  $mahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Mahasiswa $mahasiswa)
+    public function destroy($id)
     {
-        //
+        $mhs = Mahasiswa::findOrFail($id)->delete();
+        Session::flash("flash_notification", 
+        [
+            "level" => "danger",
+            "message" => "Berhasil dihapus"
+        ]);
+        
+        return redirect()->route('mahasiswa.index');
     }
+    
 }

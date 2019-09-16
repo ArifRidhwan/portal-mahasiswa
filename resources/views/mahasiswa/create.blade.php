@@ -12,24 +12,31 @@
                 {{ csrf_field() }}
 
                 <div class="form-group">
-                    <label for="">Nama Mahasiswa</label>
+                    <label for="">NPM</label>
+                    <input class="form-control" type="number" name="npm">
+                </div>
+     
+                <div class="form-group">
+                    <label for="">Nama Lengkap Mahasiswa</label>
                     <input class="form-control" type="text" name="nama">
                 </div>
 
                 <div class="form-group">
-                    <label for="">Nomor Pokok Mahasiswa</label>
-                    <input class="form-control" type="number" name="npm">
+              <label class="control-label col-sm-4">Jenis Kelamin</label>
+              <div class="col-sm-10">
+                <div class="checkbox">
+                  <label><input type="radio" name="jenis_kelamin" value="L" {{ (@$result->jenis_kelamin == 'Laki-Laki`' ? 'checked' : '') }}>L</label>
+                  <label><input type="radio" name="jenis_kelamin" value="P" {{ (@$result->jenis_kelamin == 'Perempuan' ? 'checked' : '') }}>P</label>
                 </div>
-<<<<<<< HEAD
+              </div>
+            </div>
 
                 <div class="form-group">
-              <label class="control-label col-sm-1">Alamat</label>
+              <label class="control-label col-sm-2">Alamat</label>
               <div class="col-sm-10">
                 <textarea type="text" name="alamat" class="form-control placeholder" Masukkan Alamat Lengkap> {!! @$result->alamat !!}</textarea>
               </div>
             </div>
-=======
->>>>>>> 1888499140fe53cc386ebd175c836e8851f660d2
                 
                 {{-- <div class="form-group">
                     <label for="">Nama Dosen</label>
@@ -49,16 +56,7 @@
                     </select>
                 </div> --}}
 
-<<<<<<< HEAD
                 
-=======
-                 <div class="form-group">
-              <label class="control-label col-sm-2">Alamat</label>
-              <div class="col-sm-10">
-                <textarea type="text" name="alamat" class="form-control placeholder" Masukkan Alamat Lengkap> {!! @$result->alamat !!}</textarea>
-              </div>
-            </div>
->>>>>>> 1888499140fe53cc386ebd175c836e8851f660d2
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-outline-info">Simpan Data</button>

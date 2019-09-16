@@ -17,11 +17,7 @@ class MahasiswaregisterController extends Controller
     public function index()
     {
         $mhs = Mahasiswaregister::all();
-<<<<<<< HEAD
         return view('register.index');
-=======
-        return view('register.register');
->>>>>>> 1888499140fe53cc386ebd175c836e8851f660d2
     }
 
     /**
@@ -31,11 +27,7 @@ class MahasiswaregisterController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
         return view('register.index');
-=======
-        return view('register.register');
->>>>>>> 1888499140fe53cc386ebd175c836e8851f660d2
     }
 
     /**
@@ -62,11 +54,7 @@ class MahasiswaregisterController extends Controller
                 "message" => "Berhasil menyimpan <b>$mhs->nama</b>"
             ]
         );
-<<<<<<< HEAD
         return redirect()->route('register.index');
-=======
-        return redirect()->route('mahasiswa.index');
->>>>>>> 1888499140fe53cc386ebd175c836e8851f660d2
     }
 
     /**
