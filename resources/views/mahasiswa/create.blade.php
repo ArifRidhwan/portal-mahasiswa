@@ -20,6 +20,7 @@
                     <label for="">Nomor Pokok Mahasiswa</label>
                     <input class="form-control" type="number" name="npm">
                 </div>
+<<<<<<< HEAD
 
                 <div class="form-group">
               <label class="control-label col-sm-1">Alamat</label>
@@ -27,6 +28,8 @@
                 <textarea type="text" name="alamat" class="form-control placeholder" Masukkan Alamat Lengkap> {!! @$result->alamat !!}</textarea>
               </div>
             </div>
+=======
+>>>>>>> 1888499140fe53cc386ebd175c836e8851f660d2
                 
                 {{-- <div class="form-group">
                     <label for="">Nama Dosen</label>
@@ -46,7 +49,16 @@
                     </select>
                 </div> --}}
 
+<<<<<<< HEAD
                 
+=======
+                 <div class="form-group">
+              <label class="control-label col-sm-2">Alamat</label>
+              <div class="col-sm-10">
+                <textarea type="text" name="alamat" class="form-control placeholder" Masukkan Alamat Lengkap> {!! @$result->alamat !!}</textarea>
+              </div>
+            </div>
+>>>>>>> 1888499140fe53cc386ebd175c836e8851f660d2
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-outline-info">Simpan Data</button>

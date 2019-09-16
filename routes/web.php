@@ -22,5 +22,8 @@ Route::group(['prefix' => 'member'], function () {
     Route::resource('register', 'MahasiswaregisterController');
 });
 Auth::routes(['register' => false]);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1888499140fe53cc386ebd175c836e8851f660d2
 Route::get('/home', 'HomeController@index')->name('home');

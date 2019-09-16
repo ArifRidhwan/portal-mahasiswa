@@ -15,7 +15,11 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
          $mhs = Mahasiswa::all();
+=======
+         $mhs = Mahasiswa::with('nama ','npm','alamat');
+>>>>>>> 1888499140fe53cc386ebd175c836e8851f660d2
                 return view('mahasiswa.index', compact('mhs'));
     }
 
