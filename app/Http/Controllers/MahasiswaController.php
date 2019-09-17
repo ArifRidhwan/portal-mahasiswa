@@ -15,8 +15,8 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-         $mhs = Mahasiswa::all();
-                return view('mahasiswa.index', compact('mhs'));
+        $mhs = Mahasiswa::all();
+        return view('mahasiswa.index', compact('mhs'));
     }
 
     /**
@@ -26,7 +26,7 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-                return view('mahasiswa.create');
+        return view('mahasiswa.create');
     }
 
     /**
@@ -45,11 +45,13 @@ class MahasiswaController extends Controller
         $mhs->alamat = $request->alamat;
         $mhs->save();
         // $mhs->hobi()->attach($request->hobi);//
-        Session::flash("flash_notification", 
-        [
-            "level" => "success",
-            "message" => "Berhasil menyimpan <b>$mhs->nama</b>"
-        ]);
+        Session::flash(
+            "flash_notification",
+            [
+                "level" => "success",
+                "message" => "Berhasil menyimpan <b>$mhs->nama</b>"
+            ]
+        );
         return redirect()->route('mahasiswa.index');
     }
 
@@ -72,8 +74,8 @@ class MahasiswaController extends Controller
      */
     public function edit($id)
     {
-    $mhs = Mahasiswa::findOrFail($id);
-    return view('mahasiswa.edit', compact('mhs','selected'));    
+        $mhs = Mahasiswa::findOrFail($id);
+        return view('mahasiswa.edit', compact('mhs',));
     }
 
     /**
@@ -83,7 +85,7 @@ class MahasiswaController extends Controller
      * @param  \App\Mahasiswa  $mahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         $mhs = Mahasiswa::findOrFail($id);
         $mhs->nama = $request->nama;
@@ -91,11 +93,13 @@ class MahasiswaController extends Controller
         $mhs->jenis_kelamin = $request->jenis_kelamin;
         $mhs->alamat = $request->alamat;
         $mhs->save();
-        Session::flash("flash_notification", 
-        [
-            "level" => "success",
-            "message" => "Berhasil mengedit <b>$mhs->nama</b>"
-        ]);
+        Session::flash(
+            "flash_notification",
+            [
+                "level" => "success",
+                "message" => "Berhasil mengedit <b>$mhs->nama</b>"
+            ]
+        );
         return redirect()->route('mahasiswa.index');
     }
 
@@ -108,13 +112,13 @@ class MahasiswaController extends Controller
     public function destroy($id)
     {
         $mhs = Mahasiswa::findOrFail($id)->delete();
-        Session::flash("flash_notification", 
-        [
-            "level" => "danger",
-            "message" => "Berhasil dihapus"
-        ]);
-        
+        Session::flash(
+            "flash_notification",
+            [
+                "level" => "danger",
+                "message" => "Berhasil dihapus"
+            ]
+        );
         return redirect()->route('mahasiswa.index');
     }
-    
 }
