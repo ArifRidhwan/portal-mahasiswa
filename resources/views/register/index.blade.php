@@ -17,9 +17,10 @@
 			<div class="inner">
 				<div class="image-holder">
 					<img src="{{asset('assets/register/images/piksi.png')}}" alt="">
-				</div>
-				<form action="">
-					<h3>Portal Mahasiswa</h3>
+                </div>
+                                    <form method="POST" action="{{ route('register') }}">
+                    <h3>Portal Mahasiswa</h3>
+
 					<div class="form-group">
 						<input type="text" name="npm" placeholder=" NPM" class="form-control">
 					</div>

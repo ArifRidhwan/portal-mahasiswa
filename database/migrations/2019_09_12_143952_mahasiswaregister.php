@@ -16,9 +16,9 @@ class Mahasiswaregister extends Migration
         Schema::create('mahasiswa_registers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('npm');
-            $table->string('nama');    
-            $table->string('alamat');
-            $table->string('jenis_kelamin', 1);
+            $table->string('nama');
+            // $table->string('alamat');
+            // $table->string('jenis_kelamin', 1);
             // $table->date('tgl_lahir');
             $table->string('email')->unique();
             $table->string('password');

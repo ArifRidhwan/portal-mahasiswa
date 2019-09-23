@@ -39,11 +39,11 @@ class MahasiswaregisterController extends Controller
     public function store(Request $request)
     {
         $mhs = new Mahasiswaregister();
-        $mhs->nama = $request->nama;
         $mhs->npm =  $request->npm;
-        // $mhs->id_dosen = $request->id_dosen;
+        $mhs->nama = $request->nama;
+        //    $mhs->jenis_kelamin = $request->jenis_kelamin;
         $mhs->alamat = $request->alamat;
-        $mhs->tgl_lahir = $request->tgl_lahir;
+        // $mhs->tgl_lahir = $request->tgl_lahir;
         $mhs->email = $request->email;
         $mhs->save();
         // $mhs->hobi()->attach($request->hobi);//
