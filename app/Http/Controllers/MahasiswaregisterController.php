@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Mahasiswaregister;
 use Session;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Hash;
 
 class MahasiswaregisterController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -42,9 +44,10 @@ class MahasiswaregisterController extends Controller
         $mhs->npm =  $request->npm;
         $mhs->nama = $request->nama;
         //    $mhs->jenis_kelamin = $request->jenis_kelamin;
-        $mhs->alamat = $request->alamat;
+        // $mhs->alamat = $request->alamat;
         // $mhs->tgl_lahir = $request->tgl_lahir;
         $mhs->email = $request->email;
+        $mhs->password = $request->password;
         $mhs->save();
         // $mhs->hobi()->attach($request->hobi);//
         Session::flash(
@@ -54,7 +57,7 @@ class MahasiswaregisterController extends Controller
                 "message" => "Berhasil menyimpan <b>$mhs->nama</b>"
             ]
         );
-        return redirect()->route('register.index');
+        return redirect()->route('mahasiswaregister.index');
     }
 
     /**

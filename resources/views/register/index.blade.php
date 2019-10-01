@@ -18,19 +18,35 @@
 				<div class="image-holder">
 					<img src="{{asset('assets/register/images/piksi.png')}}" alt="">
                 </div>
-                                    <form method="POST" action="{{ route('register') }}">
+                                    <form method="POST" action="{{ route('mahasiswaregister.index') }}">
+                                        @csrf
                     <h3>Portal Mahasiswa</h3>
 
 					<div class="form-group">
-						<input type="text" name="npm" placeholder=" NPM" class="form-control">
+                        <input type="text" class="@error ('npm') is-invalid @enderror" name="npm" placeholder="NPM" class="form-control">
+                         @error('npm')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
 					</div>
 					<div class="form-wrapper">
-						<input type="text" name="nama" placeholder="Nama" class="form-control">
-						<i class="zmdi zmdi-account"></i>
+						<input type="text" class="@error('nama') is-invalid @enderror" name="nama" placeholder="Nama" class="form-control">
+                        <i class="zmdi zmdi-account"></i>
+                         @error('nama')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
 					</div>
 					<div class="form-wrapper">
-						<input type="text" name="email" placeholder="Email Address" class="form-control">
-						<i class="zmdi zmdi-email"></i>
+						<input type="text" class="@error('email') is-invalid @enderror" name="email" placeholder="Email Address" class="form-control">
+                        <i class="zmdi zmdi-email"></i>
+                         @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
 					</div>
 					{{-- <div class="form-wrapper">
 						<select name="" id="" class="form-control">
@@ -42,11 +58,16 @@
 						<i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
 					</div> --}}
 					<div class="form-wrapper">
-						<input type="password" placeholder="Password" class="form-control">
-						<i class="zmdi zmdi-lock"></i>
+						<input type="password" class="@error('password') is-invalid @enderror" name="password" placeholder="Password" class="form-control">
+                        <i class="zmdi zmdi-lock"></i>
+                         @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
 					</div>
 					<div class="form-wrapper">
-						<input type="password" placeholder="Confirm Password" class="form-control">
+						<input type="password"  class="@error('konfirm_pass') is-invalid @enderror" name="konfirm_pass" placeholder="Confirm Password" class="form-control">
 						<i class="zmdi zmdi-lock"></i>
 					</div>
 					<button>Register

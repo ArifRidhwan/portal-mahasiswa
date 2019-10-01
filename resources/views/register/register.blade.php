@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -31,7 +31,7 @@
 						<input type="text" name="email" placeholder="Email Address" class="form-control">
 						<i class="zmdi zmdi-email"></i>
 					</div>
-					{{-- <div class="form-wrapper">
+					 <div class="form-wrapper">
 						<select name="" id="" class="form-control">
 							<option value="" disabled selected>Gender</option>
 							<option value="male">Male</option>
@@ -39,7 +39,7 @@
 							<option value="other">Other</option>
 						</select>
 						<i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
-					</div> --}}
+					</div>
 					<div class="form-wrapper">
 						<input type="password" placeholder="Password" class="form-control">
 						<i class="zmdi zmdi-lock"></i>
@@ -54,6 +54,5 @@
 				</form>
 			</div>
 		</div>
-
-	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
-</html>
+    </body>
+    </html> --}}

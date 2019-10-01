@@ -17,8 +17,8 @@ class Mahasiswaregister extends Migration
             $table->increments('id');
             $table->string('npm');
             $table->string('nama');
-            // $table->string('alamat');
-            // $table->string('jenis_kelamin', 1);
+            $table->string('alamat');
+            $table->string('jenis_kelamin', 1);
             // $table->date('tgl_lahir');
             $table->string('email')->unique();
             $table->string('password');
