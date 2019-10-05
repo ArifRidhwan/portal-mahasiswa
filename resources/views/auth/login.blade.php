@@ -34,21 +34,25 @@
 			<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
 				<form class="login100-form validate-form flex-sb flex-w">
 					<span class="login100-form-title p-b-32">
-						Account Login
+                        Login to Portal Mahasiswa
 					</span>
 
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
+
 					<span class="txt1 p-b-11">
-					 NPM
-					</span>
+					 Npm
+                    </span>
 					<div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
-						<input id="npm" class="input100 @error('email') is-invalid @enderror" type="text" name="npm" value="{{ old('email') }}" >
+						<input id="npm" class="input100 {{ $errors->has('npm') || $errors->has('email') ? ' is-invalid' : ' ' }}" type="number" name="npm" value="{{ old('npm') }}" >
                         <span class="focus-input100"></span>
-                        @error('npm')
+
+                            @error('npm')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-					</div>
+                    </div>
 
 					<span class="txt1 p-b-11">
 						Password
@@ -81,14 +85,16 @@
                             </a>
                              @endif
                         </div>
-                          @if (Route::has('mahasiswaregister.index'))
-                            <a href="{{ route('mahasiswaregister.index') }}">Register</a>
-                        @endif
+                          @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                                @endif
 					</div>
 
 					<div class="container-login100-form-btn">
 						<button type="submit" class="btn btn-primary" class="login100-form-btn">
-							Login
+                        {{ __('Login') }}
 						</button>
 					</div>
 

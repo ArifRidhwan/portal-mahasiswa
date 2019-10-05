@@ -27,6 +27,8 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/home';
 
+    protected $npm;
+
     /**
      * Create a new controller instance.
      *
@@ -35,5 +37,20 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+        $this->npm = $this->findNpm();
+    }
+    public function findNpm()
+    {
+        $login = request()->input('login');
+
+        $fieldType = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'npm';
+
+        request()->merge([$fieldType => $login]);
+
+        return $fieldType;
+    }
+    public function npm()
+    {
+        return $this->npm;
     }
 }

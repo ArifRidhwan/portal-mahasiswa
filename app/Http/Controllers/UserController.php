@@ -13,13 +13,13 @@ class UserController extends Controller
      */
     public function index()
     {
-         $user = User::all();
-        $response =[
-            'suscces'=>true,
-            'data'=>$user,
-            'massage'=>'berhasil'
+        $user = User::all();
+        $response = [
+            'suscces' => true,
+            'data' => $user,
+            'massage' => 'berhasil'
         ];
-        return response()->json($response,200); 
+        return response()->json($response, 200);
     }
 
     /**
@@ -30,12 +30,12 @@ class UserController extends Controller
     public function create()
     {
         $user = User::all();
-        $response =[
-            'suscces'=>true,
-            'data'=>$user,
-            'massage'=>'berhasil'
+        $response = [
+            'suscces' => true,
+            'data' => $user,
+            'massage' => 'berhasil'
         ];
-        return response()->json($response,200); 
+        return response()->json($response, 200);
     }
 
     /**
@@ -47,11 +47,12 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $user = new User();
+        $user->npm = $request->npm;
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->save;
-        $role = Role::where('name','superadmin')->first();
+        $role = Role::where('name', 'superadmin')->first();
         $user->attachRole($role);
         return response()->json('berhasil');
     }
@@ -64,13 +65,13 @@ class UserController extends Controller
      */
     public function show($id)
     {
-         $user = User::findOrFaill($id);
-        $response =[
-            'suscces'=>true,
-            'data'=>$user,
-            'massage'=>'berhasil'
+        $user = User::findOrFaill($id);
+        $response = [
+            'suscces' => true,
+            'data' => $user,
+            'massage' => 'berhasil'
         ];
-        return response()->json($response,200); 
+        return response()->json($response, 200);
     }
 
     /**
@@ -82,12 +83,12 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::findOrFaill($id);
-        $response =[
-            'suscces'=>true,
-            'data'=>$user,
-            'massage'=>'berhasil'
+        $response = [
+            'suscces' => true,
+            'data' => $user,
+            'massage' => 'berhasil'
         ];
-        return response()->json($response,200); 
+        return response()->json($response, 200);
     }
 
     /**
@@ -104,7 +105,7 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->save;
-        $role = Role::where('name','superadmin')->first();
+        $role = Role::where('name', 'superadmin')->first();
         $user->attachRole($role);
         return response()->json('berhasil');
     }
@@ -119,11 +120,11 @@ class UserController extends Controller
     {
         $user = User::findOrFaill($id);
         $user->delete();
-            $response = [
-            'success' =>true,
+        $response = [
+            'success' => true,
             'data' => $user,
-            'massage' =>'berhasil. menghapus'
+            'massage' => 'berhasil. menghapus'
         ];
-        return response()->json($response,200);
+        return response()->json($response, 200);
     }
 }
