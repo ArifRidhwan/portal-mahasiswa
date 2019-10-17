@@ -44,14 +44,10 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        /**
-         * dmn mang error na
-         * Cek .blade.php na
-         */
         return Validator::make($data, [
-            'npm' => ['required', 'integer', 'min:10'],
+            'npm' => ['required', 'integer', 'min:10', 'unique:users'],
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -63,22 +59,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        /**
-         * Ini yang ssuai di perintahkan nya nyamain jeung kebutuhna mang
-         *  ya oke
-         * sok
-         * apah mang gmn sk
-         */
-        $user = new User;
-        $user->npm = $data['npm'];
-        $user->name = $data['name'];
-        $user->email = $data['email'];
-        $user->password = bcrypt($data['password']);
-        $user->save(); //
-        $user->attachRole('mahasiswa'); //
-        //gth?
-        // Coba
-        //  oke
-        return $user;
+        return User::create([
+            'npm' => $data['npm'],
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
+        // $user = new User;
+        // $user->npm = $data['npm'];
+        // $user->name = $data['name'];
+        // $user->email = $data['email'];
+        // $user->password = bcrypt($data['password']);
+        // $user->save();
+        // $user->attachRole('mahasiswa');
+        // return $user;
     }
 }

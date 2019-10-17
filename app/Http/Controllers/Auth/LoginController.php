@@ -41,15 +41,12 @@ class LoginController extends Controller
     }
     public function findNpm()
     {
-        $login = request()->input('login');
-
+        $login = request()->input('npm');
         $fieldType = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'npm';
-
         request()->merge([$fieldType => $login]);
-
         return $fieldType;
     }
-    public function npm()
+    public function username()
     {
         return $this->npm;
     }

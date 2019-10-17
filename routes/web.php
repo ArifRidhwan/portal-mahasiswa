@@ -11,15 +11,18 @@ Route::get('/', function () {
 Route::get('/', function () {
     return view('welcome');
 });
+// Route::get('user/profile', function () {
+//     //
+// })->name('profile');
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], function () {
-    Route::resource('mahasiswa', 'MahasiswaController');
+// Route::get('/profile', function () {
+//     return view('profile');
+// });
+
+Route::group(['prefix' => 'mahasiswa', 'middleware'], function () {
+    // Route::resource('mahasiswa', 'MahasiswaController');
+    Route::resource('profile', 'ProfileController');
 });
-// Route::group(['prefix' => 'member'], function () {
-//     Route::resource('mahasiswa', 'MahasiswaController');
-//     Route::resource('mahasiswaregister', 'MahasiswaregisterController');
-//     // return View::make('register.index');
 
-Auth::routes(); //UDH BENER KN?
-// Auth::routes(['mahasiswaregister.index' => true]);
+Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

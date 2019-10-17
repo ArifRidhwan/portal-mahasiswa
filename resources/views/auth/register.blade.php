@@ -22,8 +22,9 @@
                                         @csrf
                     <h3>Portal Mahasiswa</h3>
 
+
 					<div class="form-group">
-                        <input type="number" class="@error ('npm') is-invalid @enderror" name="npm" placeholder="NPM" class="form-control">
+                        <input type="integer" class="@error ('npm') is-invalid @enderror" name="npm" placeholder="NPM" class="form-control">
                          @error('npm')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -70,9 +71,18 @@
 						<input type="password"  class="@error('konfirm_pass') is-invalid @enderror" name="password_confirmation" placeholder="Confirm Password" class="form-control">
 						<i class="zmdi zmdi-lock"></i>
 					</div>
-					<button>Register
+					<button  type="submit" class="btn btn-primary"> Register
 						<i class="zmdi zmdi-arrow-right"></i>
-					</button>
+                    </button>
+                    <div>
+                    @if (Route::has('login'))
+                                <div class="nav-item">
+                                    <div class="txt3"  style="font-size: 17px" >Back To</div>
+                                    <a class="btn btn-default btn-flat" href="{{ url('login') }}"> {{ __('Login') }}</a>
+                                </div>
+                                @endif
+                                </div>
+					</div>
 				</form>
 			</div>
 		</div>

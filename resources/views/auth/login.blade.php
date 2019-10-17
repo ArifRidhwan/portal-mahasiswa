@@ -32,42 +32,48 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
-				<form class="login100-form validate-form flex-sb flex-w">
+                                    <form method="POST" action="{{ route('login') }}">
+                                        @csrf
 					<span class="login100-form-title p-b-32">
                         Login to Portal Mahasiswa
 					</span>
+                                      {{-- @if(session()->has('login_error'))
+                <div class="alert alert-success">
+                  {{ session()->get('login_error') }}
+                </div>
+              @endif --}}
 
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
 
 					<span class="txt1 p-b-11">
 					 Npm
                     </span>
-					<div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
-						<input id="npm" class="input100 {{ $errors->has('npm') || $errors->has('email') ? ' is-invalid' : ' ' }}" type="number" name="npm" value="{{ old('npm') }}" >
+					<div class="wrap-input100 validate-input m-b-36" data-validate = "Npm is required">
+                        <input id="npm" type="integer"
+                                   class="input100 {{ $errors->has('npm') || $errors->has('email') ? ' is-invalid' : '' }}"
+                                    name="npm" value="{{ old('npm') ?: old('email') }}" required autofocus >
                         <span class="focus-input100"></span>
 
-                            @error('npm')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                          @if ($errors->has('npm')|| $errors->has('email'))
+                    <span class="help-block">
+                                        <strong>{{ $errors->first('npm')  ?: $errors->first('email') }}</strong>
                                     </span>
-                                @enderror
+                  @endif
                     </div>
 
 					<span class="txt1 p-b-11">
 						Password
 					</span>
-					<div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
+					<div class="wrap-input100 validate-input m-b-12" {{ $errors->has('password') ? ' has-error' : '' }} data-validate = "Password is required">
 						<span class="btn-show-pass">
 							<i class="fa fa-eye"></i>
 						</span>
-						<input id="password" class="input100  @error('password') is-invalid @enderror" type="password" name="password" >
+						<input id="password" class="input100" type="password" name="password" >
                         <span class="focus-input100"></span>
-                        @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                        @if ($errors->has('password'))
+                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
                                     </span>
-                                @enderror
+                  @endif
 					</div>
 
 					<div class="flex-sb-m w-full p-b-48">
@@ -87,13 +93,15 @@
                         </div>
                           @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ url('register') }}">{{ __('Register') }}</a>
                                 </li>
                                 @endif
 					</div>
 
 					<div class="container-login100-form-btn">
-						<button type="submit" class="btn btn-primary" class="login100-form-btn">
+                        <button type="submit"
+                                                class="btn btn-primary"
+                                                class="login100-form-btn">
                         {{ __('Login') }}
 						</button>
 					</div>

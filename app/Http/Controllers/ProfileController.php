@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Mahasiswaregister;
-use Session;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use App\Profile;
+use Session;
 
-class MahasiswaregisterController extends Controller
+class ProfileController extends Controller
 {
-
-
     /**
      * Display a listing of the resource.
      *
@@ -18,8 +15,8 @@ class MahasiswaregisterController extends Controller
      */
     public function index()
     {
-        $mhs = Mahasiswaregister::all();
-        return view('register.index');
+        $profile =  Profile::all();
+        return view('profile.index', compact('profile'));
     }
 
     /**
@@ -29,7 +26,7 @@ class MahasiswaregisterController extends Controller
      */
     public function create()
     {
-        return view('register.index');
+        //
     }
 
     /**
@@ -40,24 +37,7 @@ class MahasiswaregisterController extends Controller
      */
     public function store(Request $request)
     {
-        $mhs = new Mahasiswaregister();
-        $mhs->npm =  $request->npm;
-        $mhs->nama = $request->nama;
-        //    $mhs->jenis_kelamin = $request->jenis_kelamin;
-        // $mhs->alamat = $request->alamat;
-        // $mhs->tgl_lahir = $request->tgl_lahir;
-        $mhs->email = $request->email;
-        $mhs->password = $request->password;
-        $mhs->save();
-        // $mhs->hobi()->attach($request->hobi);//
-        Session::flash(
-            "flash_notification",
-            [
-                "level" => "success",
-                "message" => "Berhasil menyimpan <b>$mhs->nama</b>"
-            ]
-        );
-        return redirect()->route('mahasiswaregister.index');
+        //
     }
 
     /**
@@ -77,9 +57,10 @@ class MahasiswaregisterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        $profile = new Profile;
+        return view('profile.edit');
     }
 
     /**
@@ -91,7 +72,21 @@ class MahasiswaregisterController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $profile = new Profile();
+        $profile->npm = $request->npm;
+        $profile->name = $request->name;
+        $profile->email = $request->email;
+        // $pm->jenis_kelamin = $request->jenis_kelamin;
+        // $pm->alamat = $request->alamat;
+        $profile->save();
+        Session::flash(
+            "flash_notification",
+            [
+                "level" => "success",
+                "message" => "Berhasil mengedit <b>$profile->name</b>"
+            ]
+        );
+        return redirect()->route('profile.index');
     }
 
     /**

@@ -272,7 +272,7 @@
                 </p>
               </li>
               <!-- Menu Body -->
-              <li class="user-body">
+              {{-- <li class="user-body">
                 <div class="row">
                   <div class="col-xs-4 text-center">
                     <a href="#">Followers</a>
@@ -285,11 +285,11 @@
                   </div>
                 </div>
                 <!-- /.row -->
-              </li>
+              </li> --}}
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="/mahasiswa/profile" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
                   <a href="{{ route('logout') }}"
@@ -330,8 +330,8 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="active treeview">
-           <a href="#">
-            <i class="fa fa-shield"></i><span>Profil</span>
+           <a href="{{ url('/mahasiswa/profile') }}">
+            <i class="fa fa-shield"></i><span>Profile</span>
             {{-- <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span> --}}
@@ -372,7 +372,7 @@
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="/ "><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Dashboard</li>
       </ol>
     </section>
